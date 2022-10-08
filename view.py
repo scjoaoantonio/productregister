@@ -49,9 +49,11 @@ def ver_item(id):
     ver_dados_individual = []
     with con:
         cur = con.cursor()
-        query = "SELECT * FROM inventorio id=?"
+        query = "SELECT * FROM inventorio WHERE id=?"
         cur.execute(query, id)
 
         rows = cur.fetchall()
         for row in rows:
             ver_dados_individual.append(row)
+
+    return ver_dados_individual
